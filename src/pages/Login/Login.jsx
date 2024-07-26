@@ -1,10 +1,18 @@
-import { useEffect,  useState } from "react";
+import { useContext, useEffect,  useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/Authprovider";
 
 const Login = () => {
-  const [disabled, setDisabled] = useState(true);
+  const [disebled,setDisabled] = useState(true);
+  const {signIn} = useContext(AuthContext)
+  const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
 
   useEffect(() => {
     loadCaptchaEnginge(4); 
@@ -16,6 +24,21 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    title: 'User Login Successful.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                navigate(from, { replace: true });
+            })
   };
 
   const handleValidateCaptcha = (e) => {
