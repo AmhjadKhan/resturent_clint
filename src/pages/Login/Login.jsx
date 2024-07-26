@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
 
 const Login = () => {
-  const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
@@ -18,13 +18,14 @@ const Login = () => {
     console.log(email, password);
   };
 
-  const handleValidateCaptcha = () => {
-    const userCaptchaValue = captchaRef.current.value;
-    if (validateCaptcha(userCaptchaValue)) {
-      setDisabled(false); // Enable the button if captcha is validated
-    } else {
-      setDisabled(true); // Keep the button disabled if captcha is not validated
-    }
+  const handleValidateCaptcha = (e) => {
+    const user_captcha_value = e.target.value;
+        if (validateCaptcha(user_captcha_value)) {
+            setDisabled(false);
+        }
+        else {
+            setDisabled(true)
+        }
   };
 
   return (
@@ -77,7 +78,6 @@ const Login = () => {
                 </label>
                 <input
                   type="text"
-                  ref={captchaRef}
                   name="captcha"
                   placeholder="type the captcha above"
                   className="input input-bordered"
@@ -99,7 +99,7 @@ const Login = () => {
                 />
               </div>
             </form>
-            {/* <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p> */}
+            <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
           </div>
         </div>
       </div>
