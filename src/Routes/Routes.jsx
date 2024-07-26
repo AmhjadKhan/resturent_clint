@@ -7,7 +7,7 @@ import Menu from "../pages/Menu/Menu/Menu";
 import Order from "../pages/Order/Order/Order";
 import Login from "../pages/Login/Login";
 import Singup from "../pages/Singup/Singup";
-import Privateroute from './Privateroutes'
+// import Privateroute from './Privateroutes'
 
 
   export const router = createBrowserRouter([
