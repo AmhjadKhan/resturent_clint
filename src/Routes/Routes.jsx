@@ -7,6 +7,8 @@ import Menu from "../pages/Menu/Menu/Menu";
 import Order from "../pages/Order/Order/Order";
 import Login from "../pages/Login/Login";
 import Singup from "../pages/Singup/Singup";
+import Dashboard from "../Layout/Dashboard";
+import Cart from "../pages/Dashboard/Cart/Cart";
 // import Privateroute from './Privateroutes'
 
 
@@ -38,4 +40,14 @@ import Singup from "../pages/Singup/Singup";
 
       ]
     },
+    {
+      path:'dashboard',
+      element:<Dashboard />,
+      children:[
+        {
+          path:'cart',
+          element:<Cart />
+        }
+      ]
+    }
   ]);
