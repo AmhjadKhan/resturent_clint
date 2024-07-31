@@ -4,10 +4,9 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/Authprovider";
 import Swal from "sweetalert2";
+import { axiosPublic } from "../../hooks/useAxiosPublic";
 
 const Singup = () => {
-
-
   const {
     register,
     handleSubmit,
@@ -17,30 +16,36 @@ const Singup = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
-
-
   const onSubmit = (data) => {
     console.log(data);
     createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                updateUserProfile(data.name, data.photoURL)
-                    .then(() => {
-                        console.log('user profile info updated')
-                        reset();
-                        Swal.fire({
-                          position: 'top-end',
-                          icon: 'success',
-                          title: 'User created successfully.',
-                          showConfirmButton: false,
-                          timer: 1500
-                      });
-                      navigate('/');
-
-                    })
-                    .catch(error => console.log(error))
-            })
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        updateUserProfile(data.name, data.photoURL)
+          .then(() => {
+            const userInfo = {
+              name: data.name,
+              email: data.email,
+            };
+            axiosPublic.post("/users", userInfo)
+              .then((res) => {
+                if (res.data.insertedId) {
+                  console.log("User added to the database");
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User created successfully.",
+                    showConfirmButton: false,
+                    timer: 1500,
+                  });
+                  navigate("/");
+                }
+              })
+              .catch((error) => console.log(error));
+          });
+      });
   };
 
   return (
@@ -132,7 +137,7 @@ const Singup = () => {
                 )}
                 {errors.password?.type === "pattern" && (
                   <p className="text-red-600">
-                    Password must have one Uppercase one lower case, one number
+                    Password must have one uppercase, one lowercase, one number,
                     and one special character.
                   </p>
                 )}
@@ -152,7 +157,10 @@ const Singup = () => {
             </form>
             <p>
               <small>
-                Already have an account <Link className="text-3xl" to="/login">Login</Link>
+                Already have an account?{" "}
+                <Link className="text-3xl" to="/login">
+                  Login
+                </Link>
               </small>
             </p>
           </div>

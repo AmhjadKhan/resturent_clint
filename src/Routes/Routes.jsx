@@ -9,7 +9,7 @@ import Login from "../pages/Login/Login";
 import Singup from "../pages/Singup/Singup";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
-// import Privateroute from './Privateroutes'
+import Privateroute from './Privateroutes'
 
 
   export const router = createBrowserRouter([
@@ -42,7 +42,7 @@ import Cart from "../pages/Dashboard/Cart/Cart";
     },
     {
       path:'dashboard',
-      element:<Dashboard />,
+      element:<Privateroute><Dashboard /></Privateroute>,
       children:[
         {
           path:'cart',
