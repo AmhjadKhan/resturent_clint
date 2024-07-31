@@ -10,6 +10,7 @@ import Singup from "../pages/Singup/Singup";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
 import Privateroute from './Privateroutes'
+import AllUsers from "../pages/Dashboard/AllUsers/Allusers";
 
 
   export const router = createBrowserRouter([
@@ -47,6 +48,11 @@ import Privateroute from './Privateroutes'
         {
           path:'cart',
           element:<Cart />
+        },
+         // admin routes
+         {
+          path: 'users',
+          element: <AllUsers />
         }
       ]
     }
