@@ -22,7 +22,7 @@ const UpdateItem = () => {
     }
   return (
     <div>
-    <SectionTitle heading="Update Item" subHeading="change somthing" ></SectionTitle>
+    <SectionTitle heading="Update Item" subHeading="DEVELOPER CLOSE THIS SIDE" ></SectionTitle>
     <div>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full my-6">
