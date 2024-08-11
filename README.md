@@ -1,4 +1,5 @@
 # Resturet Item Booking Project
+## MERN STACK PROJECT
 
 ![Project Preview](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWX49ucc3FbbA4pYBRytRz-oCG-pSSIc347Q&s)
 
