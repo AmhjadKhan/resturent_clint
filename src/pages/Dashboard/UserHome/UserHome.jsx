@@ -28,7 +28,7 @@ const UserHome = () => {
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-3xl mb-4">
           <span>Hi, Welcome </span>
-          <span className="text-4xl font-semibold text-[#382121]">
+          <span className="text-4xl font-semibold text-[#bba946]">
             {user?.displayName ? user.displayName : "Back"}
           </span>
         </h2>
