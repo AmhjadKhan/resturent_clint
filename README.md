@@ -17,6 +17,19 @@
 - **GitHub Client Repository**: [Client Repo Link](https://github.com/AmhjadKhan/resturent_clint/)
 - **GitHub Server Repository**: [Server Repo Link](https://github.com/AmhjadKhan/Resturent_server)
 
+## Getting Started
+
+### Cloning the Repository
+``` npm install```
+#### make sure 
+ MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_secret_key
+FIREBASE_CONFIG=your_firebase_config
+
+### you start
+``` npm run dev ```
+
 ## Project Overview
 The Resturet Item Booking Project is a full-stack web application designed to facilitate the booking of restaurant items in a seamless and efficient manner. The application caters to both users and administrators, offering a range of features to manage bookings, payments, and user data.
 
