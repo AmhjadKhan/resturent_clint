@@ -19,35 +19,27 @@ const NavBar = () => {
     }
   const navOptions = (
     <>
-      <li>
+      <li className="hover:bg-white">
         <Link to="/">Home</Link>
       </li>
-      <li>
+      <li className="hover:bg-white">
         <Link to="/menu">Our Menu</Link>
       </li>
-      <li>
+      <li className="hover:bg-white">
         <Link to="/order/salad">Order Food</Link>
       </li>
       {
-            user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
+            user && isAdmin && <li className="hover:bg-white"><Link to="/dashboard/adminHome">Dashboard</Link></li>
       }
       {
-            user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
+            user && !isAdmin && <li className="hover:bg-white"><Link to="/dashboard/userHome">Dashboard</Link></li>
       }
-      <li>
-            <Link to="/dashboard/cart">
-                <button className="btn">
-                    <FaShoppingCart className="mr-2"></FaShoppingCart>
-                    <div className="badge badge-secondary">+{cart.length}</div>
-                </button>
-            </Link>
-        </li>
     </>
   );
 
   return (
     <>
-      <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-black font-semibold">
+      <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-black  font-semibold">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn  btn-ghost lg:hidden">
@@ -79,16 +71,23 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
+        <li>
+            <Link to="/dashboard/cart">
+                <button className="btn">
+                    <FaShoppingCart className="mr-2"></FaShoppingCart>
+                    <div className="badge badge-secondary">+{cart.length}</div>
+                </button>
+            </Link>
+        </li>
           {user ? (
             <>
-            <span className="text-red-600 font-bold">{user?.displayName}</span>
-              <button onClick={handleLogOut} className="btn btn-ghost">
+              <button onClick={handleLogOut} className="btn btn-ghost bg-red-500">
                 LogOut
               </button>
             </>
           ) : (
             <>
-              <li className="btn">
+              <li className="btn btn-primary">
                 <Link to="/login">Login</Link>
               </li>
             </>
