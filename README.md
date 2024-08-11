@@ -14,8 +14,8 @@
 
 ## Live Links
 - **Live Site**: [Your Live Site Link](https://your-live-site-link.com)
-- **GitHub Client Repository**: [Client Repo Link](https://github.com/your-username/client-repo-link)
-- **GitHub Server Repository**: [Server Repo Link](https://github.com/your-username/server-repo-link)
+- **GitHub Client Repository**: [Client Repo Link](https://github.com/AmhjadKhan/resturent_clint/)
+- **GitHub Server Repository**: [Server Repo Link](https://github.com/AmhjadKhan/Resturent_server)
 
 ## Project Overview
 The Resturet Item Booking Project is a full-stack web application designed to facilitate the booking of restaurant items in a seamless and efficient manner. The application caters to both users and administrators, offering a range of features to manage bookings, payments, and user data.
